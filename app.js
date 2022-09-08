@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 const indexRouter = require("./routes/index");
 const authorRouter = require("./routes/author");
+const bookRouter = require("./routes/book");
 
  
 app.set("view engine", "ejs")
@@ -14,7 +15,10 @@ app.use(expressLayouts)
 app.use(express.static("public")); 
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
+
 app.use("/", indexRouter);
 app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
+
 
 module.exports = app;
